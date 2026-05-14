@@ -135,8 +135,9 @@ function CarDetail({ carId, setRoute, bookings, blocks, prefill }) {
           </button>
         </div>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40, padding: "32px 24px 56px", position: "relative", alignItems: "center" }}>
-          <div style={{ aspectRatio: "16/10", borderRadius: 16, overflow: "hidden", background: "#111", boxShadow: "0 30px 60px -20px rgba(0,0,0,.6)" }}>
+          <div style={{ aspectRatio: "16/10", borderRadius: 16, overflow: "hidden", background: "#111", boxShadow: "0 30px 60px -20px rgba(0,0,0,.6)", position: "relative" }}>
             <img src={car.img} alt={car.name} style={{ width: "100%", height: "100%", objectFit: "cover" }}/>
+            <PhotoCredit car={car} />
           </div>
           <div>
             <span className="hero-eyebrow">{car.tier} · {car.year}</span>

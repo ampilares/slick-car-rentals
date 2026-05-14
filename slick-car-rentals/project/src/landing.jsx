@@ -47,6 +47,7 @@ function Landing({ setRoute, tweaks, copy }) {
             </div>
             <div className="hero-art">
               <img src={sportsCar.img} alt="" />
+              <PhotoCredit car={sportsCar} compact />
               <div className="hero-art-card">
                 <div>
                   <div style={{ fontSize: 11, letterSpacing: ".2em", textTransform: "uppercase", opacity: .7 }}>Featured this week</div>

@@ -156,6 +156,23 @@ function Footer() {
 }
 
 // ----- CAR CARD -----
+function PhotoCredit({ car, compact = false }) {
+  if (!car?.imgPage || !car?.imgCredit) return null;
+  const label = compact ? "Photo credit" : `Photo: ${car.imgCredit} · ${car.imgLicense}`;
+  return (
+    <a
+      className={"photo-credit" + (compact ? " compact" : "")}
+      href={car.imgPage}
+      target="_blank"
+      rel="noreferrer"
+      title={`${car.imgCredit} · ${car.imgLicense}`}
+      onClick={(e) => e.stopPropagation()}
+    >
+      {label}
+    </a>
+  );
+}
+
 function CarCard({ car, onClick }) {
   const S = window.SLICK;
   return (
@@ -163,6 +180,7 @@ function CarCard({ car, onClick }) {
       <div className="car-card-img">
         <img src={car.img} alt={car.name} loading="lazy" onError={(e) => { e.target.style.display = "none"; }}/>
         <div className="car-card-tier">{car.tier}</div>
+        <PhotoCredit car={car} compact />
       </div>
       <div className="car-card-body">
         <div className="car-card-title-row">
@@ -186,6 +204,7 @@ function CarCard({ car, onClick }) {
 }
 
 window.CarCard = CarCard;
+window.PhotoCredit = PhotoCredit;
 window.Logo = Logo;
 window.Nav = Nav;
 window.Footer = Footer;

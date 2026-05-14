@@ -281,6 +281,7 @@ function StepCar({ S, availableCars, dates, selectedCarId, setSelectedCarId }) {
             <div className="car-card-img">
               <img src={car.img} alt={car.name} loading="lazy"/>
               <div className="car-card-tier">{car.tier}</div>
+              <PhotoCredit car={car} compact />
               {selectedCarId === car.id && (
                 <div style={{ position: "absolute", top: 12, right: 12, width: 28, height: 28, borderRadius: "50%", background: "var(--accent)", color: "#0a0a0a", display: "grid", placeItems: "center", boxShadow: "var(--sh-md)" }}>
                   <I.check size={16} strokeWidth={3}/>
@@ -517,8 +518,9 @@ function BookingSummary({ S, car, dates, times, dayCount, pricing }) {
       <div className="eyebrow" style={{ marginBottom: 12 }}>Your Booking</div>
       {car ? (
         <>
-          <div className="summary-car-img">
+          <div className="summary-car-img" style={{ position: "relative" }}>
             <img src={car.img} alt={car.name}/>
+            <PhotoCredit car={car} compact />
           </div>
           <div style={{ fontFamily: "var(--font-head)", fontWeight: 800, fontSize: 18, marginBottom: 4 }}>{car.name}</div>
           <div className="tiny" style={{ marginBottom: 14 }}>{car.tier} · {car.year}</div>
