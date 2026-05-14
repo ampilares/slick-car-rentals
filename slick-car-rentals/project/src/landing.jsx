@@ -2,7 +2,9 @@
 
 function Landing({ setRoute, tweaks, copy }) {
   const S = window.SLICK;
-  const featured = S.CARS.slice(0, 3);
+  const featured = ["c01", "c02", "c05", "c08", "c09", "c13", "c17", "c19"]
+    .map(id => S.CARS.find(car => car.id === id))
+    .filter(Boolean);
   const sportsCar = S.CARS.find(c => c.id === "c19");
 
   // Quick date search state
@@ -121,9 +123,6 @@ function Landing({ setRoute, tweaks, copy }) {
             {featured.map(car => (
               <CarCard key={car.id} car={car} onClick={() => setRoute({ name: "car", carId: car.id })} />
             ))}
-            <CarCard car={S.CARS[16]} onClick={() => setRoute({ name: "car", carId: S.CARS[16].id })} />
-            <CarCard car={S.CARS[8]} onClick={() => setRoute({ name: "car", carId: S.CARS[8].id })} />
-            <CarCard car={S.CARS[18]} onClick={() => setRoute({ name: "car", carId: S.CARS[18].id })} />
           </div>
         </div>
       </section>
