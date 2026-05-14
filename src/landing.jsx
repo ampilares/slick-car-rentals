@@ -80,7 +80,7 @@ function Landing({ setRoute, tweaks, copy }) {
       {/* Quick-pick band */}
       <section style={{ background: "var(--cream)", padding: "32px 0", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
-          <div className="panel" style={{ display: "grid", gridTemplateColumns: "auto 1fr 1fr 1fr auto", gap: 16, alignItems: "end", marginBottom: 0, padding: 18 }}>
+          <div className="panel quick-search-panel" style={{ display: "grid", gridTemplateColumns: "auto 1fr 1fr 1fr auto", gap: 16, alignItems: "end", marginBottom: 0, padding: 18 }}>
             <div style={{ paddingRight: 8, borderRight: "1px solid var(--line)", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <div className="eyebrow">Find a car</div>
               <div className="h3" style={{ marginTop: 4 }}>Quick search</div>
@@ -134,7 +134,7 @@ function Landing({ setRoute, tweaks, copy }) {
             <span className="eyebrow">How It Works</span>
             <h2 className="h2" style={{ marginTop: 8 }}>{copy.section_how_a} <span style={{ color: "var(--accent-deep)" }}>{copy.section_how_b}</span></h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22 }}>
+          <div className="home-steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22 }}>
             {[
               { n: "01", icon: <I.calendar size={28}/>, t: "Pick your dates", d: "Tell us when you need a car. We'll show you what's free that week." },
               { n: "02", icon: <I.key size={28}/>, t: "Pick your wheels", d: "Hatch, SUV, ute, or the M3 — whatever suits the job. Real photos, real specs." },
@@ -161,7 +161,7 @@ function Landing({ setRoute, tweaks, copy }) {
             <h2 className="h2" style={{ marginTop: 8 }}>The longer you hire, <span style={{ color: "var(--accent-deep)" }}>the more you save.</span></h2>
             <p className="lede" style={{ marginTop: 10 }}>One simple discount system. Applies to every car. No codes, no fine print.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22, maxWidth: 1080, margin: "0 auto" }}>
+          <div className="pricing-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22, maxWidth: 1080, margin: "0 auto" }}>
             {[
               { label: "Daily", days: "1–6 days", price: "Full rate", note: "Perfect for a weekend escape or a quick trip.", discount: "" },
               { label: "Weekly", days: "7–27 days", price: "10% off", note: "Automatic discount applied at checkout — book any 7+ days.", discount: "10%", popular: true },
@@ -182,7 +182,7 @@ function Landing({ setRoute, tweaks, copy }) {
       {/* Why us strip */}
       <section style={{ padding: "72px 0", background: "var(--cream)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
+          <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
             {[
               { v: "20", l: "Vehicles in fleet" },
               { v: "0", l: "Hidden fees, ever" },
@@ -201,7 +201,7 @@ function Landing({ setRoute, tweaks, copy }) {
       {/* Testimonial */}
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22 }}>
+          <div className="testimonial-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22 }}>
             {[
               { name: "Sarah M.", car: "RAV4 · 7 days", q: "Easy as. Picked up at 8am Saturday, dropped back the next Friday. The car was spotless and the booking took five minutes flat." },
               { name: "Bluegum Builders", car: "HiLux · monthly", q: "We use Slick when our work ute is in for service. They've never let us down, prices are fair, and the boys know us by name." },

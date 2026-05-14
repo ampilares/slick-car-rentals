@@ -194,7 +194,7 @@ function Booking({ setRoute, carId, prefill, bookings, blocks, addBooking, copy 
             </div>
 
             {/* Sidebar summary */}
-            <aside style={{ position: "sticky", top: 96 }}>
+            <aside className="sticky-sidebar" style={{ position: "sticky", top: 96 }}>
               <BookingSummary S={S} car={selectedCar} dates={dates} times={times} dayCount={dayCount} pricing={pricing} />
             </aside>
           </div>
@@ -238,7 +238,7 @@ function StepDates({ S, dates, setDates, times, setTimes, calMonth, setCalMonth,
         <span><span className="legend-swatch" style={{ background: "repeating-linear-gradient(45deg,#FDE9E5,#FDE9E5 3px,#FBD9D2 3px,#FBD9D2 6px)" }}></span>Maintenance</span>
       </div>
 
-      <div style={{ marginTop: 28, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div className="time-fields-grid" style={{ marginTop: 28, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <div className="field">
           <label>Pickup time</label>
           <select className="select" value={times.pickup} onChange={(e) => setTimes({ ...times, pickup: e.target.value })}>
@@ -270,7 +270,7 @@ function StepCar({ S, availableCars, dates, selectedCarId, setSelectedCarId }) {
         <strong>{availableCars.length}</strong> vehicles available from {S.fmtDate(dates.start)} to {S.fmtDate(dates.end)}.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
+      <div className="step-car-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
         {availableCars.map(car => (
           <div
             key={car.id}
@@ -359,7 +359,7 @@ function StepReview({ S, car, dates, times, contact, pricing, dayCount, copy }) 
       <p className="lede" style={{ marginBottom: 24 }}>{copy.review_sub}</p>
 
       <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
-        <div style={{ background: "var(--cream)", padding: "16px 22px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="review-card-header" style={{ background: "var(--cream)", padding: "16px 22px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div>
             <div className="eyebrow">Vehicle</div>
             <div style={{ fontFamily: "var(--font-head)", fontWeight: 800, fontSize: 22, marginTop: 4 }}>{car.name}</div>
@@ -378,7 +378,7 @@ function StepReview({ S, car, dates, times, contact, pricing, dayCount, copy }) 
           <div className="summary-row"><span className="lbl">Contact</span><span className="val">{contact.email}<br/>{contact.phone}</span></div>
           {contact.notes && <div className="summary-row"><span className="lbl">Notes</span><span className="val" style={{ maxWidth: 280 }}>{contact.notes}</span></div>}
         </div>
-        <div style={{ background: "var(--ink)", color: "#fff", padding: "22px", display: "flex", justifyContent: "space-between", alignItems: "end" }}>
+        <div className="review-total-row" style={{ background: "var(--ink)", color: "#fff", padding: "22px", display: "flex", justifyContent: "space-between", alignItems: "end" }}>
           <div>
             <div className="eyebrow" style={{ color: "var(--accent)" }}>Total · pay now</div>
             <div style={{ fontSize: 12, opacity: .65, marginTop: 4 }}>
@@ -421,7 +421,7 @@ function StepPayment({ payment, setPayment, errors, pricing, processing }) {
       <h2 className="h2" style={{ marginBottom: 6 }}>Pay securely.</h2>
       <p className="lede" style={{ marginBottom: 24 }}>Pay for the full booking up front. Your card details are encrypted and never stored on our servers.</p>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "var(--cream)", borderRadius: 8, marginBottom: 20, fontSize: 13 }}>
+      <div className="secure-payment-note" style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "var(--cream)", borderRadius: 8, marginBottom: 20, fontSize: 13 }}>
         <I.shield size={16} style={{ color: "var(--accent-deep)" }}/>
         <span><strong>Secure payment</strong> · Encrypted end-to-end · Powered by Stripe (demo — not a real charge)</span>
       </div>
@@ -489,7 +489,7 @@ function StepPayment({ payment, setPayment, errors, pricing, processing }) {
         />
       </div>
 
-      <div style={{ marginTop: 24, padding: 18, background: "var(--cream)", borderRadius: 10, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div className="payment-total-row" style={{ marginTop: 24, padding: 18, background: "var(--cream)", borderRadius: 10, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <div className="tiny" style={{ letterSpacing: ".1em", textTransform: "uppercase", marginBottom: 4 }}>You'll be charged</div>
           {pricing.discountLabel && <div style={{ fontSize: 11, color: "var(--accent-deep)", fontWeight: 700, marginBottom: 2 }}>{pricing.discountLabel} applied</div>}
@@ -576,7 +576,7 @@ function ConfirmScreen({ booking, car, setRoute, S, copy }) {
 
           <div className="panel" style={{ marginTop: 36, textAlign: "left" }}>
             <h3 className="h3" style={{ marginBottom: 14 }}>Your booking</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: 16, alignItems: "center" }}>
+            <div className="confirm-car-grid" style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: 16, alignItems: "center" }}>
               <div style={{ aspectRatio: "16/10", borderRadius: 6, overflow: "hidden" }}>
                 <img src={car.img} alt={car.name} style={{ width: "100%", height: "100%", objectFit: "cover" }}/>
               </div>

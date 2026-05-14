@@ -141,7 +141,7 @@ function HowItWorks({ setRoute, copy }) {
             { n: "06", t: "Pick up the keys", d: "Roll into our Melton yard on the day. Bring your physical licence and the card you paid with for the $1,500 insurance hold. We'll do a quick walkaround and you're off." },
             { n: "07", t: "Drop it back", d: "Return the car with a full tank by the agreed time. We'll do the same walkaround in reverse. You're done." },
           ].map((s, i, arr) => (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 28, paddingBottom: 32, marginBottom: 32, borderBottom: i < arr.length - 1 ? "1px solid var(--line)" : "none" }}>
+            <div key={i} className="how-step-row" style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 28, paddingBottom: 32, marginBottom: 32, borderBottom: i < arr.length - 1 ? "1px solid var(--line)" : "none" }}>
               <div style={{ width: 56, height: 56, background: "var(--accent)", color: "#0a0a0a", borderRadius: 8, display: "grid", placeItems: "center", fontFamily: "var(--font-display)", fontSize: 24, letterSpacing: ".04em" }}>{s.n}</div>
               <div>
                 <h3 className="h3" style={{ marginBottom: 8 }}>{s.t}</h3>

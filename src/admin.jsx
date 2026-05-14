@@ -57,7 +57,7 @@ function AdminDashboard({ S, bookings, blocks, setTab, setSelectedCarId }) {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 24 }}>
+      <div className="admin-title-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 24 }}>
         <div>
           <span className="eyebrow">Dashboard</span>
           <h1 className="h1" style={{ fontSize: 32, marginTop: 4 }}>G'day, Slick admin.</h1>
@@ -65,14 +65,14 @@ function AdminDashboard({ S, bookings, blocks, setTab, setSelectedCarId }) {
         <div style={{ fontSize: 13, color: "var(--muted)" }}>{S.fmtDate(new Date())}</div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 28 }}>
+      <div className="admin-stat-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 28 }}>
         <div className="stat"><div className="stat-num">{active.length}</div><div className="stat-label">Cars Out Today</div></div>
         <div className="stat"><div className="stat-num">{next7.length}</div><div className="stat-label">Pickups Next 7 Days</div></div>
         <div className="stat"><div className="stat-num">{S.CARS.length - active.length}</div><div className="stat-label">Available Now</div></div>
         <div className="stat"><div className="stat-num">${(totalRevenue / 1000).toFixed(1)}k</div><div className="stat-label">Revenue Booked</div></div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 16 }}>
+      <div className="admin-dashboard-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 16 }}>
         <div className="panel">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
             <h3 className="h3">Next pickups</h3>
@@ -162,14 +162,14 @@ function AdminCalendar({ S, bookings, blocks, setBlocks, selectedCarId, setSelec
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 20 }}>
+      <div className="admin-title-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 20 }}>
         <div>
           <span className="eyebrow">Availability</span>
           <h1 className="h1" style={{ fontSize: 32, marginTop: 4 }}>Per-car calendar</h1>
         </div>
       </div>
 
-      <div className="panel" style={{ marginBottom: 20, padding: 16, display: "flex", gap: 14, alignItems: "center" }}>
+      <div className="panel admin-car-picker" style={{ marginBottom: 20, padding: 16, display: "flex", gap: 14, alignItems: "center" }}>
         <div style={{ flex: 1 }}>
           <label style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--muted)", display: "block", marginBottom: 6 }}>Choose a car</label>
           <select className="select" value={selectedCarId || ""} onChange={(e) => setSelectedCarId(e.target.value)}>
@@ -197,7 +197,7 @@ function AdminCalendar({ S, bookings, blocks, setBlocks, selectedCarId, setSelec
           <p className="lede" style={{ margin: "8px auto" }}>You can block dates for service, detailing, or anything else.</p>
         </div>
       ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 20 }}>
+        <div className="admin-calendar-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 20 }}>
           <div>
             <Calendar
               year={calMonth.y} month={calMonth.m}
@@ -300,7 +300,7 @@ function AdminBookings({ S, bookings, setBookings }) {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 20 }}>
+      <div className="admin-title-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 20 }}>
         <div>
           <span className="eyebrow">Bookings</span>
           <h1 className="h1" style={{ fontSize: 32, marginTop: 4 }}>All bookings</h1>
@@ -321,7 +321,7 @@ function AdminBookings({ S, bookings, setBookings }) {
         ))}
       </div>
 
-      <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
+      <div className="panel table-panel" style={{ padding: 0, overflow: "hidden" }}>
         <table className="table">
           <thead>
             <tr><th>Code</th><th>Customer</th><th>Vehicle</th><th>Dates</th><th>Days</th><th>Total</th><th>Status</th><th></th></tr>
@@ -370,7 +370,7 @@ function AdminFleet({ S, bookings, blocks, onPickCar }) {
   const today = S.todayIso();
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 20 }}>
+      <div className="admin-title-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "end", marginBottom: 20 }}>
         <div>
           <span className="eyebrow">Fleet</span>
           <h1 className="h1" style={{ fontSize: 32, marginTop: 4 }}>All {S.CARS.length} vehicles</h1>
@@ -380,7 +380,7 @@ function AdminFleet({ S, bookings, blocks, onPickCar }) {
         </button>
       </div>
 
-      <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
+      <div className="panel table-panel" style={{ padding: 0, overflow: "hidden" }}>
         <table className="table">
           <thead>
             <tr><th></th><th>Name</th><th>Tier</th><th>Year</th><th>Per day</th><th>Active bookings</th><th>Status</th><th></th></tr>

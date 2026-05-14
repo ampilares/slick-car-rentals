@@ -134,7 +134,7 @@ function CarDetail({ carId, setRoute, bookings, blocks, prefill }) {
             <I.chevronLeft size={14}/> Back to fleet
           </button>
         </div>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40, padding: "32px 24px 56px", position: "relative", alignItems: "center" }}>
+        <div className="container car-detail-hero-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40, padding: "32px 24px 56px", position: "relative", alignItems: "center" }}>
           <div style={{ aspectRatio: "16/10", borderRadius: 16, overflow: "hidden", background: "#111", boxShadow: "0 30px 60px -20px rgba(0,0,0,.6)", position: "relative" }}>
             <img src={car.img} alt={car.name} style={{ width: "100%", height: "100%", objectFit: "cover" }}/>
             <PhotoCredit car={car} />
@@ -156,7 +156,7 @@ function CarDetail({ carId, setRoute, bookings, blocks, prefill }) {
 
       <section className="section" style={{ paddingTop: 56 }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 32, alignItems: "start" }}>
+          <div className="car-detail-body-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 32, alignItems: "start" }}>
             <div>
               <span className="eyebrow">The Specs</span>
               <h2 className="h2" style={{ marginTop: 8, marginBottom: 24 }}>What you're driving.</h2>
@@ -170,7 +170,7 @@ function CarDetail({ carId, setRoute, bookings, blocks, prefill }) {
               </div>
 
               <h3 className="h3" style={{ marginTop: 36, marginBottom: 16 }}>Features included</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10 }}>
+              <div className="feature-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10 }}>
                 {car.features.map((f, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14 }}>
                     <div style={{ width: 22, height: 22, borderRadius: "50%", background: "var(--accent)", color: "#0a0a0a", display: "grid", placeItems: "center", flexShrink: 0 }}>
@@ -190,7 +190,7 @@ function CarDetail({ carId, setRoute, bookings, blocks, prefill }) {
               </ul>
             </div>
 
-            <aside style={{ position: "sticky", top: 96 }}>
+            <aside className="sticky-sidebar" style={{ position: "sticky", top: 96 }}>
               <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
                 <div style={{ background: "var(--ink)", color: "#fff", padding: 20 }}>
                   <div className="eyebrow" style={{ color: "var(--accent)" }}>Quick book</div>
